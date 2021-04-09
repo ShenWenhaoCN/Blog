@@ -1,0 +1,41 @@
+# 开发环境配置
+
+# 服务端口设置
+server:
+  port: 8080
+
+spring:
+  # 数据库设计
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+  # JPA设计
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+    # 静态路径设置
+  mvc:
+    static-path-pattern: /**
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/,file:${web.upload-path}
+
+# 日志设置
+logging:
+  level:
+    root: info
+    cn.shenwenhao.blog: debug
+# 日志文件位置，默认按大小（10M）切分，如果需要自定义需要添加XML文件
+  file: log/blog-dev.log
+
+#服务器设置
+#注意部署到服务器之后，需要修改下面的路径适应于服务器路径
+web:
+  upload-path: D:\Code\project\Blog_Spring\Blog\
+
+
+
+

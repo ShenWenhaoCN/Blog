@@ -1,0 +1,32 @@
+# 生产环境配置
+
+# 服务端口设置
+server:
+  port: 8081
+
+spring:
+  # 数据库设计
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+  # JPA设计
+  jpa:
+    hibernate:
+  # 实际生产中设置为none防止修改表结构
+      ddl-auto: none
+    show-sql: true
+
+# 日志设置
+logging:
+  level:
+    # 提高日志级别，减少输出的日志量
+    root: warn
+    cn.shenwenhao.blog: info
+# 日志文件位置，默认按大小（10M）切分，如果需要自定义需要添加XML文件
+  file: log/blog-pro.log
+
+
+
+
